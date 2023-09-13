@@ -1,0 +1,15 @@
+https://stackoverflow.com/questions/29910520/why-is-this-code-vulnerable-to-buffer-overflow-attacks
+
+int func(char* str)
+{
+   char buffer[100];
+   unsigned short len = strlen(str);
+
+   if(len >= 100)
+   {
+        return (-1);
+   }
+
+   strncpy(buffer,str,strlen(str));
+   return 0;
+}
