@@ -1,25 +1,46 @@
 // https://stackoverflow.com/questions/28287256/buffer-overflow-implementation
-
-/* This program has a buffer overflow vulnerability. */
-/* Our task is to exploit this vulnerability */
-//stack.c
-#include <stdlib.h>
 #include <stdio.h>
+#include <sys/mman.h>
 #include <string.h>
-int bof(char *str)
-{
-    char buffer[12];
-    /* The following statement has a buffer overflow problem */
-    strcpy(buffer, str);
-    return 1;
+#include <stdlib.h>
+
+#define BUFSIZE 30
+
+char grade = '3';
+char Name[BUFSIZE];
+
+void readString(char *s) {
+char buf[BUFSIZE];
+int i = 0; 
+int c;
+
+while (1) {
+  c = fgetc(stdin);
+  if ((c == EOF) || (c == '\n')) 
+     break;
+  buf[i++] = c;
 }
-int main(int argc, char **argv)
-{
-    char str[517];
-    FILE *badfile;
-    badfile = fopen("badfile", "r");
-    fread(str, sizeof(char), 517, badfile);
-    bof(str);
-    printf("Returned Properly\n");
-    return 1;
+buf[i] = 0;
+
+for (i = 0; i < BUFSIZE; i++) 
+  s[i] = buf[i];
+
+return;
 }
+
+int main(void) {
+  mprotect((void*)((unsigned int)Name & 0xfffff000), 1,
+         PROT_READ | PROT_WRITE | PROT_EXEC);
+
+  printf("What is your name?\n");
+  readString(Name);
+
+    if (strcmp(Name, "smart guy") == 0) 
+     grade = '6';
+
+    printf("Thank you, %s.\n", Name);
+    printf("I recommend that you get a grade of %c on this  assignment.\n", 
+         grade);
+
+ exit(0);
+  }
