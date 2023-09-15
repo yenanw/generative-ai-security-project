@@ -1,4 +1,8 @@
 // https://stackoverflow.com/questions/54055462/what-is-the-vulnerability-in-this-c-code
+
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 int
 main(int argc, char **argv)
 {
@@ -16,7 +20,7 @@ int
 bar(char *arg)
 {
     char lbuf[1024];
-    if (strlen(arg) >= 1024)
+    if (strlen(&arg) >= 1024)
         return -1;
 
     memset(lbuf, 0, sizeof(lbuf));
