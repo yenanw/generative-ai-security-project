@@ -27,7 +27,7 @@ int func()
     }
 
     // Copy the input to a buffer
-    strcpy(buffer2, buffer, strlen(buffer));
+    strncpy(buffer2, buffer, strlen(buffer));
 
     return 0;
 }
