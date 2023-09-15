@@ -10,7 +10,7 @@ thoroughly.
 It seems to be rather complicated trying to get the fuzzers to fuzz commandline
 arguments, so it probably is best to avoid any `argv` fuzzing shenaningans.
 
-Have your input from either a file or `stdin`.
+It's easiest to have your input from either a file or `stdin`.
 
 Then create an input directory and add at least one file containing some valid
 input. You don't need to create the output directory manually.
@@ -43,6 +43,12 @@ to use, refer to the following guide.
     v
    use GCC mode (afl-gcc/afl-g++) (or afl-clang/afl-clang++ for clang)
 ```
+
+For instance, if using `afl-clang-lto`, then you can compile the program using
+```
+afl-clang-lto [path_to_program] -o [program_name]
+```
+Basically the same way you would use `gcc`.
 
 To fuzz, run the command `afl-fuzz -i input_dir -o output_dir ./your_program [...commandline stuff...]`.
 
