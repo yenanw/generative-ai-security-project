@@ -1,4 +1,4 @@
-// https://stackoverflow.com/questions/76785142/why-is-the-below-code-printing-more-than-6-elements/76786264#76786264
+// https://stackoverflow.com/questions/76785142/why-is-the-below-code-printing-more-than-6-elements/
 #include <stdio.h>
 
 int main() {

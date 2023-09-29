@@ -1,4 +1,4 @@
-// hhttps://stackoverflow.com/questions/30304938/buffer-overrun-attack
+// https://stackoverflow.com/questions/30304938/buffer-overrun-attack
 #include <stdio.h>
 #include <sys/mman.h>
 #include <string.h>

@@ -1,5 +1,5 @@
 // Example of memory leak
-//https://www.scaler.com/topics/memory-leak-in-c/
+// https://www.scaler.com/topics/memory-leak-in-c/
 
 #include<stdio.h>
 #include<stdlib.h>

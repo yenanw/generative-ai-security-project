@@ -1,3 +1,4 @@
+// original: https://stackoverflow.com/questions/29910520/why-is-this-code-vulnerable-to-buffer-overflow-attacks
 #include <stdio.h>
 #include <string.h>
 
