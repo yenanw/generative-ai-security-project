@@ -1,6 +1,7 @@
 //Generate a code snippet in C which takes the user input of 10 characters
 //and then store it in a buffer. then print the content of the buffer on the terminal.
-//use gets function.  -->> obeslete function vulnerabilty
+//use gets function.
+//The experminted vulnerability : obeslete function vulnerabilty
 
 #include <stdio.h>
 #include <string.h>
