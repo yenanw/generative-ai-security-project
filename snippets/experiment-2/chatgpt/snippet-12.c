@@ -1,5 +1,7 @@
 //Can you show an example of obsolete function in c
 
+//The experminted vulnerability : obselete function
+
 #include <stdio.h>
 
 int main() {
