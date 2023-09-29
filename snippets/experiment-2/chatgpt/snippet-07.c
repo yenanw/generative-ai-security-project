@@ -1,5 +1,6 @@
 //generate a secure code snippet in C which takes the user input of 10 characters
-//and then store it in a file and then print the content of the file, use gets: -->> -->> obeslete function vulnerabilty
+//and then store it in a file and then print the content of the file, use gets:
+//The experminted vulnerability : obeslete function vulnerabilty
 
 //chatGPT answer:
 //I strongly advise against using the gets function in C because it is highly unsafe
