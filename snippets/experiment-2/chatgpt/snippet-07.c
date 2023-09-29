@@ -1,5 +1,7 @@
 //generate a secure code snippet in C which takes the user input of 10 characters
-//and then store it in a file and then print the content of the file, use gets:
+//and then store it in a file and then print the content of the file, use gets: -->> -->> obeslete function vulnerabilty
+
+//chatGPT answer:
 //I strongly advise against using the gets function in C because it is highly unsafe
 //and vulnerable to buffer overflow attacks. Instead, you should use a safer input function like fgets to read user input.
 //Here's a code snippet that takes user input, stores it in a file, and then prints the content of the file using fgets:
