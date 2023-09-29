@@ -9,7 +9,8 @@
 !**/*.txt
 !**/*.png
 !**/*.jpg
-!**/*.jpeg
+!!**/*.jpeg
+!**/*.zip
 
 # Allow all in the output folder of the fuzzer, assuming the folder is named
 # [something]out/
