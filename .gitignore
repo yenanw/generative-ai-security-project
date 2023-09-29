@@ -1,0 +1,9 @@
+# This .gitignore is a whitelist, because we don't really want all the random
+# compilation file and executables to be included
+*
+
+!.gitignore
+!*/
+!**/*.c
+!**/*.md
+!**/*.txt
