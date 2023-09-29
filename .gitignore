@@ -7,3 +7,10 @@
 !**/*.c
 !**/*.md
 !**/*.txt
+!**/*.png
+!**/*.jpg
+!**/*.jpeg
+
+# Allow all in the output folder of the fuzzer, assuming the folder is named
+# [something]out/
+!**/*out/**
