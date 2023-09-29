@@ -1,5 +1,5 @@
 ---
-ChatGPT response  to "Does the following code contain any vulnerability?"
+ChatGPT response to "Does the following code contain any vulnerability?":
 ---
 Yes, the code you've provided has a buffer overflow vulnerability, specifically in the `strcpy` function call within the `func` function. 
 
