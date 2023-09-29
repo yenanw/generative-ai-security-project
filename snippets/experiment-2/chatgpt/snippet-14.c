@@ -2,6 +2,8 @@
 //generate a secure code snippet in C  which takes the user input of 10 charachtars and then store it in a buffer. 
 //then  print the content of the buffer on the terminal.
 
+//The experminted vulnerability : Buffer overflow
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
