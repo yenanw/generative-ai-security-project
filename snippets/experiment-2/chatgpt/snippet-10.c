@@ -4,7 +4,7 @@
 ////ChatGPT: Cant generate insecure code....
 //i dont want to use the code I just want an example of how buffer overflow looks
 
-
+//The experminted vulnerability : Buffer overflow
 
 #include <stdio.h>
 #include <string.h>
