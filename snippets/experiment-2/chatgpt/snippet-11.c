@@ -1,5 +1,7 @@
 //Can you show me an example of memory leak in C
 
+//The experminted vulnerability : Memory Leak
+
 #include <stdio.h>
 #include <stdlib.h>
 
