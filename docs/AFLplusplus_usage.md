@@ -2,21 +2,18 @@
 
 ## Installation
 
-Read the [official installation guide](https://github.com/AFLplusplus/AFLplusplus/blob/stable/docs/INSTALL.md)
-thoroughly.
+Read the [official installation guide](https://github.com/AFLplusplus/AFLplusplus/blob/stable/docs/INSTALL.md).
+
+Make sure you have the AFL binaries in your path.
 
 ## Fuzzing with AFL++
 
-It seems to be rather complicated trying to get the fuzzers to fuzz commandline
-arguments, so it probably is best to avoid any `argv` fuzzing shenaningans.
+To begin with, the code snippets to be fuzzed should take in some sort of input either through a file or `stdin`.
 
-It's easiest to have your input from either a file or `stdin`.
+It is possible to fuzz using commandline arguments, namely `argv` fuzzing. But it seems too complicated for what it's worth, see [here](https://github.com/AFLplusplus/AFLplusplus/blob/stable/utils/argv_fuzzing/README.md) for a guide on how to do `argv` fuzzing. So just make sure the code snippets generate take input through a file or the standard input.
 
-Then create an input directory and add at least one file containing some valid
-input. You don't need to create the output directory manually.
-
-Before fuzzing, compile the source code using AFL++'s own compilers. As to which
-to use, refer to the following guide.
+### Compiling own source code
+Since we have source code available, we can just compile the code using AFL's own compilers. There are a lot of different compilers to use, so refer to the following for which one to use. In general, if your system is not too old, `afl-clang-lto` is fine.
 
 ```bash
 +--------------------------------+
@@ -46,17 +43,52 @@ to use, refer to the following guide.
 
 For instance, if using `afl-clang-lto`, then you can compile the program using
 ```
-afl-clang-lto [path_to_program] -o [program_name]
+afl-clang-lto [source_code] -o [program]
 ```
 Basically the same way you would use `gcc`.
 
-To fuzz, run the command `afl-fuzz -i input_dir -o output_dir ./your_program [...commandline stuff...]`.
+### Sanitizers
+
+Do note that there is possibility to use sanitizers when fuzzing, see [this](https://github.com/AFLplusplus/AFLplusplus/blob/stable/docs/fuzzing_in_depth.md#c-selecting-sanitizers) for more details. In our case, we use mostly *ASAN* to detect buffer overflow vulnerabilities. So make sure to **always** `export AFL_USE_ASAN=1` before compiling the code, if you decide to use ASAN.
+
+Recommended sanitizers: **ASAN** and **UBSCAN**.
+
+### Fuzzing the code
+
+Before you start with fuzzing, you need an input directory with at least one file containing **valid** inputs for the program. On the contrary, you do not need to have created an output directory. AFL will create it for you.
+
+To fuzz, run the command:
+```bash
+afl-fuzz -i input -o output -- bin/target -someopt @@
+```
+
+Note that `@@` is not necessary if the program does not take input from a file, it used only to have afl-fuzz autogenerate a file name for you.
+
+### General workflow
+
+Assuming you have AFL++ installed and the binaries are in the path.
+
+1. Activate ASAN and UBSAN by running the following commands:
+   ```bash
+   export AFL_USE_ASAN=1
+   export AFL_USE_UBSAN=1
+   ```
+2. Compile the source code to be fuzzed by
+   ```bash
+   afl-clang-lto source_code.c -o [source_code]
+   ```
+3. Create a directory with at least one file containing a valid input to the program. I.e. A file `input/valid_input`. 
+3. Run the fuzzer using the following commands (assuming the code reads input from `stdin`)
+   ```bash
+   afl-fuzz -i input -o output -- ./source_code
+   ```
+4. Fix any errors you have and rerun the corresponding steps.
+5. Wait until satisfied and `ctrl+c`.
 
 ## Dealing with AFL++ fuzzer errors
-In general you can fix the errors by simply following the hints given in the
-error messages.
+Here are some of the problems I have encountered dealing with AFL++ fuzzer and solution to them.
 
-Error:
+#### Error: core dump notifications to an external utility
 
 ```bash
 [-] Hmm, your system is configured to send core dump notifications to an
@@ -73,15 +105,18 @@ echo core >/proc/sys/kernel/core_pattern
 [-] PROGRAM ABORT : Pipe at the beginning of 'core_pattern'
 Location : check_crash_handling(), src/afl-fuzz-init.c:2361
 ```
-Solution:
+
+**Solution:**
 
 Temporarily edit your `core_pattern` by
 ```bash
-sudo -i
+sudo -i # login as root
 echo core >/proc/sys/kernel/core_pattern
 exit
 ```
-Error:
+
+
+#### Error: on-demand CPU frequency scaling
 
 ```bash
 [-] Whoops, your system uses on-demand CPU frequency scaling, adjusted
@@ -100,6 +135,15 @@ performance drop.
 [-] PROGRAM ABORT : Suboptimal CPU scaling governor
 Location : check_cpu_governor(), src/afl-fuzz-init.c:2470
 ```
-Solution:
+**Solution:**
 
-Follow the instructions in the error message.
+You can either
+  - ignore this error, if you don't care about performance like me, by `export AFL_SKIP_CPUFREQ=1`,
+  - or temporarily fix it by running the following commands, <sub>Note: I have not tested it</sub>
+    ```bash
+    sudo -i # login as root
+    cd /sys/devices/system/cpu
+    echo performance | tee cpu*/cpufreq/scaling_governor
+    exit
+    ```
+  - or run `sudo afl-system-config` according to their official documentation.
