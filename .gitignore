@@ -3,15 +3,7 @@
 *
 
 !.gitignore
+# Allow all first-level directories
 !*/
-!**/*.c
-!**/*.md
-!**/*.txt
-!**/*.png
-!**/*.jpg
-!!**/*.jpeg
-!**/*.zip
-
-# Allow all in the output folder of the fuzzer, assuming the folder is named
-# [something]out/
-!**/*out/**
+# Allow all files with an extension, may need to be a bit more restrictive
+!**/*.*
