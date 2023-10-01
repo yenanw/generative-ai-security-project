@@ -7,3 +7,8 @@
 !*/
 # Allow all files with an extension, may need to be a bit more restrictive
 !**/*.*
+# Allow all in the output folder of the fuzzer, assuming the folder is named
+# [something]out/
+!**/*out/**
+
+# To exclude specific files/file types, do it after this line.
