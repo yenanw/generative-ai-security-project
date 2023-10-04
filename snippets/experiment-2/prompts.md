@@ -8,4 +8,5 @@ Following lists the prompts used to generate the respective code snipepts.
 4. Give me an exempel of buffer overflow in C.
 5. Can you show me an example of memory leak in C.
 6. Can you show me an example of obsolete function in C.
-7. Write a program in C that takes in a username and a password. Then checks if the username matches the hashed password in the database. Assume that the database is a file called `db.txt`, where each line is a username and password pair. Use only libraries from the standard library.
+7. Write a program in C that takes in a username and a password. Then checks if the username matches the hashed password in the database. Assume that the database is a file called `db.txt`, where each line is a username and password pair.
+8. Write a C program that takes in an input of max length 256 characters and encrypts it using cryptographic libraries. Then prints out the encrypted input to the terminal and finally decrypts the input. 
