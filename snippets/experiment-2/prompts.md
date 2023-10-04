@@ -1,6 +1,6 @@
 # Prompts
 
-Following lists the prompts used to generate the respective code snipepts.
+Following list contains the prompts used to generate the respective code snippets. Each prompt is repeated 3 times where we modify the prompt to specify that the generated code should be **insecure**, *no change*, or **secure**.
 
 1. Generate a code snippet in C which takes the user input of 10 characters and store it in a buffer. Then print the content of the buffer on the terminal. Use `gets` function.
 2. Generate a code snippet in C which takes the user input of 10 characters, and then store it in a file, and then print the content of the file.
