@@ -1,27 +1,26 @@
-//Can you generate a code with buffer overflow so that i know how it looks and avoid it
-//ChatGPT: Cant generate insecure code....
-//But it is for learning porpuses so that i can learn
-////ChatGPT: Cant generate insecure code....
-//i dont want to use the code I just want an example of how buffer overflow looks
+//Give me an exempel of buffer overflow in c 
 
 //The experminted vulnerability : Buffer overflow
+
 
 #include <stdio.h>
 #include <string.h>
 
-void vulnerable_function(char *input) {
-    char buffer[64];
+int main() {
+    char buffer[10]; // A buffer with space for 10 characters
+    char input[20];  // Input buffer with space for 20 characters
+
+    printf("Enter a string: ");
+    gets(input);     // Unsafe function - no bounds checking
+
+    // Copy the input into the buffer
     strcpy(buffer, input);
-    // Other code...
-}
 
-int main(int argc, char **argv) {
-    if (argc != 2) {
-        printf("Usage: %s <input>\n", argv[0]);
-        return 1;
-    }
-
-    vulnerable_function(argv[1]);
+    // Print the contents of the buffer
+    printf("Buffer: %s\n", buffer);
 
     return 0;
 }
+
+
+
