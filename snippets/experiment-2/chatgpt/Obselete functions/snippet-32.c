@@ -3,6 +3,7 @@
 //Then checks if the username matches the hashed password in the database. 
 //Assume that the database is a file called `db.txt`, where each line is a username and password pair.
 
+
 #include <stdio.h>
 #include <string.h>
 #include <openssl/sha.h>
@@ -37,4 +38,32 @@ int main() {
 
     FILE *db = fopen("db.txt", "r");
     if (db == NULL) {
-        printf("Database
+        printf("Database file not found.\n");
+        return 1;
+    }
+
+    char line[MAX_LENGTH * 2];  // We assume each line has a username and hashed password.
+
+    while (fgets(line, sizeof(line), db) != NULL) {
+        char stored_username[MAX_LENGTH];
+        char stored_hashedPassword[MAX_LENGTH];
+
+        // Split the line into username and hashed password.
+        if (sscanf(line, "%s %s", stored_username, stored_hashedPassword) == 2) {
+            // Hash the entered password and compare it with the stored hashed password.
+            char entered_hashedPassword[MAX_LENGTH];
+            hashPassword(password, entered_hashedPassword);
+
+            if (strcmp(username, stored_username) == 0 && strcmp(entered_hashedPassword, stored_hashedPassword) == 0) {
+                printf("Authentication successful. Welcome, %s!\n", username);
+                fclose(db);
+                return 0;
+            }
+        }
+    }
+
+    printf("Authentication failed. Invalid username or password.\n");
+
+    fclose(db);
+    return 1;
+}
