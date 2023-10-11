@@ -14,7 +14,9 @@ Snippet 33: Write a C program that takes in an input of max length 256 character
 
 Snippet 34:  Write a secure C program that takes in an input of max length 256 characters and encrypts it using cryptographic libraries. Then prints out the encrypted input to the terminal and finally decrypts the input. 
 
-snippet 35:
+snippet 35: //What is buffer overflow...
+//can u give another exempel by writing a C program that takes in an input of max length 256 characters and encrypts it using cryptographic libraries. 
+//Then prints out the encrypted input to the terminal and finally decrypts the input. 
 
 
 ----------------------------------------Memory Leak---------------------------------------------
