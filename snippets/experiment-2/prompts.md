@@ -44,4 +44,8 @@ Snippet 30:  Write a program in C that takes in a username and a password. Then 
 
 Snippet 31: Write a secure program in C that takes in a username and a password. Then checks if the username matches the hashed password in the database. Assume that the database is a file called `db.txt`, where each line is a username and password pair.
 
-Snippet 32: 
+Snippet 32: //Can you explain obselete functions.....
+
+//can you give another exempel by  writing a program in C that takes in a username and a password. 
+//Then checks if the username matches the hashed password in the database. 
+//Assume that the database is a file called `db.txt`, where each line is a username and password pair.
