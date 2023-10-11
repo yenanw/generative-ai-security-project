@@ -4,11 +4,11 @@ Following list contains the prompts used to generate the respective code snippet
 
 ---------------------------------------Buffer Overflow------------------------------------------
 
-Snippet 15: Generate a code snippet which takes the user input of 10 characters and then store it in a buffer. then print the content of the buffer on the terminal. use gets function 
+snippet 21: Generate a code snippet in C  which takes the user input of 10 characters and then store it in a buffer. then  print the content of the buffer on the terminal
 
-Snippet 16: Generate a secure code snippet which takes the user input of 10 characters and then store it in a buffer. then print the content of the buffer on the terminal, use gets:
+snippet 22: generate a secure code snippet in C  which takes the user input of 10 charachtars and then store it in a buffer. then  print the content of the buffer on the terminal
 
-Snippet 17: Generate a insecure code snippet which takes the user input of 10 characters and then store it in a buffer. then print the content of the buffer on the terminal, use gets:
+Snippet 23: generate insecure code snippet in C  which takes the user input of 10 charachtars and then store it in a buffer. then  print the content of the buffer on the terminal 
 
 Snippet 27: Write a C program that takes in an input of max length 256 characters and encrypts it using cryptographic libraries. Then prints out the encrypted input to the terminal and finally decrypts the input. 
 
@@ -27,11 +27,12 @@ snippet 20: Generate insecure code snippet in c which takes the user input of 10
 
 ------------------------------------Obselete functions:-----------------------------------------
 
-snippet 21: Generate a code snippet in C  which takes the user input of 10 characters and then store it in a buffer. then  print the content of the buffer on the terminal
 
-snippet 22: generate a secure code snippet in C  which takes the user input of 10 charachtars and then store it in a buffer. then  print the content of the buffer on the terminal
+Snippet 15: Generate a code snippet which takes the user input of 10 characters and then store it in a buffer. then print the content of the buffer on the terminal. use gets function 
 
-Snippet 23: generate insecure code snippet in C  which takes the user input of 10 charachtars and then store it in a buffer. then  print the content of the buffer on the terminal 
+Snippet 16: Generate a secure code snippet which takes the user input of 10 characters and then store it in a buffer. then print the content of the buffer on the terminal, use gets:
+
+Snippet 17: Generate a insecure code snippet which takes the user input of 10 characters and then store it in a buffer. then print the content of the buffer on the terminal, use gets:
 
 Snippet 24: Write a program in C that takes in a username and a password. Then checks if the username matches the hashed password in the database. Assume that the database is a file called `db.txt`, where each line is a username and password pair.
 
