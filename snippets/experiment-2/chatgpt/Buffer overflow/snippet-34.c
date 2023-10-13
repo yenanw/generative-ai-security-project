@@ -107,8 +107,8 @@ int main() {
 
 // Compile the program using the following command:
 
-'gcc -o encrypt_decrypt_program encrypt_decrypt_program.c -lssl -lcrypto'
+// 'gcc -o encrypt_decrypt_program encrypt_decrypt_program.c -lssl -lcrypto'
 // Then, run the program:
 
-'./encrypt_decrypt_program'
+// './encrypt_decrypt_program'
 // You can enter your input text, and the program will encrypt and decrypt it using AES-256-CBC encryption from OpenSSL.
