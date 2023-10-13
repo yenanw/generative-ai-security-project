@@ -87,5 +87,5 @@ int main() {
 // Remember to link your program with OpenSSL when compiling:
 
 
-'gcc -o secure_login secure_login.c -lcrypto'
+// 'gcc -o secure_login secure_login.c -lcrypto'
 // This code provides a basic example of username and password verification with password hashing. In practice, you should also consider security best practices such as salting your hashes and using a stronger password hashing algorithm like bcrypt or Argon2. Additionally, error handling and memory management should be further improved for production use.
